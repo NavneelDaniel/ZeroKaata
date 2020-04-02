@@ -1,0 +1,251 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic tac toe</title>
+    <style>
+        body{
+            background-image: url('{% static "images/tic-tac-toe-game-on-wooden-background-J0KM0P.jpg" %}');
+            background-size: cover;
+            position: absolute;
+            width: 650px;
+            height: 100px;
+            top: 43%;
+            left: 34%;
+            margin-top: -129px;
+            margin-bottom: -200px;
+            
+
+        }
+        #tic{
+            /*border: solid 1px #ccc;*/
+            /*position: relative;*/
+            width: 100%;
+            /*height: 30%;*/
+            
+
+        }
+        /*#tac.after{
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+        }*/
+        #tac{
+            width: 33.3%;
+            /*height: 33.3%;*/
+            float: left;
+            
+
+        }
+        .hey{
+            width: 100%;
+            height: 100%;
+            background-image: url('{% static "images/53861844-freehand-textured-cartoon-click-me-symbol.jpg" %}');
+            position: absolute;
+            transform: perspective(600px)rotateY(0deg);
+            border: solid 1px #000;
+            backface-visibility: hidden;
+            transition: transform 1s linear 0s;
+            
+        }
+        .Hello{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform: perspective(600px)rotateY(180deg);
+            border: solid 1px #000;
+            backface-visibility: hidden;
+            transition: transform 1s linear 0s;
+            font-size: 70px;
+            
+    </style>
+</head>
+<body onload="myFunction()">
+<div id="bada"  style="display:none">
+<h1>Game ID = {{use}}</h1>
+<h2 id="demo"></h2>
+<div id="tic">    
+        <div id="tac" onclick="klik(1)">
+            <button id=btn1D class="hey"></button>
+            <button id=btn1B class="Hello"></button>
+        </div>
+        <div id="tac" onclick="klik(2)">
+            <button id=btn2D class="hey"></button>
+            <button id=btn2B class="Hello"></button>
+        </div>
+        <div id="tac" onclick="klik(3)">
+            <button id=btn3D class="hey"></button>
+            <button id=btn3B class="Hello"></button>
+        </div>
+        <div id="tac" onclick="klik(4)">
+            <button id=btn4D class="hey"></button>
+            <button id=btn4B class="Hello"></button>
+        </div>
+        <div id="tac" onclick="klik(5)">
+            <button id=btn5D class="hey"></button>
+            <button id=btn5B class="Hello"></button>
+        </div>
+        <div id="tac" onclick="klik(6)">
+            <button id=btn6D class="hey"></button>
+            <button id=btn6B class="Hello"></button>
+        </div>
+        <div id="tac" onclick="klik(7)">
+            <button id=btn7D class="hey"></button>
+            <button id=btn7B class="Hello"></button>
+        </div>
+        <div id="tac" onclick="klik(8)">
+            <button id=btn8D class="hey"></button>
+            <button id=btn8B class="Hello"></button>
+        </div>
+        <div id="tac" onclick="klik(9)">
+            <button id=btn9D class="hey"></button>
+            <button id=btn9B class="Hello"></button>
+        </div>
+            <h1 id="abc"></h1>
+
+    </div>
+</div>
+<script>
+    function myFunction() {
+        var txt;
+        var person = prompt("Please enter your name:");
+        document.getElementById("bada").style.display='block';
+        if (person == null || person == "") {
+        txt = "<button onclick='myFunction()'>Please Enter your name</button>";
+        } else {
+         txt = "Hello " + person;
+        }
+        document.getElementById("demo").innerHTML = txt;
+    }
+    var pemain="X";
+    document.getElementById("abc").innerHTML="Next move is:-"+pemain;
+
+        function klik(x){
+            document.getElementById("btn"+x+"D").style.transform="perspective(600px)rotateY(-180deg)";
+
+            document.getElementById("btn"+x+"B").style.transform="perspective(600px)rotateY(0deg)";
+            set(x)
+            {
+                if(x==1)
+                    if(pemain=="X")
+                        var text1=100000000;
+                    else if (pemain=="Y")
+                        text1=200000000;
+
+                if(x==2)
+                    if(pemain=="X")
+                        text2=010000000;
+                    else if (pemain=="Y")
+                        text2=020000000;
+
+                if(x==3)
+                    if(pemain=="X")
+                        text3=001000000;
+                    else if (pemain=="Y")
+                        text3=002000000;
+
+                if(x==4)
+                    if(pemain=="X")
+                        text4=000100000;
+                    else if (pemain=="Y")
+                        text4=000200000;
+
+                if(x==5)
+                    if(pemain=="X")
+                        text5=000010000;
+                    else if (pemain=="Y")
+                        text5=000020000;
+
+                if(x==6)
+                    if(pemain=="X")
+                        text6=000001000;
+                    else if (pemain=="Y")
+                        text6=000002000;
+
+                if(x==7)
+                    if(pemain=="X")
+                        text7=000000100;
+                    else if (pemain=="Y")
+                        text7=000000200;
+
+                if(x==8)
+                    if(pemain=="X")
+                        text8=000000010;
+                    else if (pemain=="Y")
+                        tex8=000000020;
+
+                if(x==9)
+                    if(pemain=="X")
+                        text9=000000001;
+                    else if (pemain=="Y")
+                        text9=000000002;
+
+                    
+            }
+            document.getElementById("btn"+x+"B").innerHTML=pemain;
+            document.getElementById("btn"+x+"B").value=pemain;
+            document.getElementById("btelse if (true) {}n"+x+"B").disabled="disabled"
+            if (pemain=="X") {
+                document.getElementById("abc").innerHTML="Next move is:-O";
+                cek();
+                pemain="O";
+            }else{
+                document.getElementById("abc").innerHTML="Next move is:-X";
+                cek();
+                pemain="X";
+            }
+
+
+        }
+    function cek(){
+        if ( document.getElementById("btn1B").value==pemain&&document.getElementById("btn2B").value==pemain&&document.getElementById("btn3B").value==pemain){
+            menang(1,2,3);
+        }else if(document.getElementById("btn4B").value==pemain&&document.getElementById("btn5B").value==pemain&&document.getElementById("btn6B").value==pemain){
+            menang(4,5,6);
+        }else if(document.getElementById("btn7B").value==pemain&&document.getElementById("btn8B").value==pemain&&document.getElementById("btn9B").value==pemain){
+            menang(7,8,9);
+        }else if(document.getElementById("btn2B").value==pemain&&document.getElementById("btn5B").value==pemain&&document.getElementById("btn8B").value==pemain){
+            menang(2,5,8);
+        }else if(document.getElementById("btn3B").value==pemain&&document.getElementById("btn6B").value==pemain&&document.getElementById("btn9B").value==pemain){
+            menang(3,6,9);
+        }else if(document.getElementById("btn1B").value==pemain&&document.getElementById("btn4B").value==pemain&&document.getElementById("btn7B").value==pemain){
+            menang(1,4,7);
+        }else if(document.getElementById("btn1B").value==pemain&&document.getElementById("btn5B").value==pemain&&document.getElementById("btn9B").value==pemain){
+            menang(1,5,9);
+        }else if(document.getElementById("btn3B").value==pemain&&document.getElementById("btn5B").value==pemain&&document.getElementById("btn7B").value==pemain){
+            menang(3,5,7);
+        }
+    }
+    function menang(a,b,c){
+        document.getElementById("abc").innerHTML="Winner Winner -:"+pemain;
+
+        for(i=1;i<10;i++){
+            document.getElementById("btn"+i+"D").disabled="disabled"
+        }
+
+        var x=1;
+        function an(){
+            if(x==1){
+                document.getElementById("btn"+a+"B").style.background="#ccc";
+                document.getElementById("btn"+b+"B").style.background="#999";
+                document.getElementById("btn"+c+"B").style.background="#666";
+                x=2;
+
+            }else if(x==2){
+                document.getElementById("btn"+c+"B").style.background="#ccc";
+                document.getElementById("btn"+a+"B").style.background="#999";
+                document.getElementById("btn"+b+"B").style.background="#666";
+                x=3;
+            }else if(x=3){
+                document.getElementById("btn"+b+"B").style.background="#ccc";
+                document.getElementById("btn"+c+"B").style.background="#999";
+                document.getElementById("btn"+a+"B").style.background="#666";
+                x=1;
+            }
+        }
+        setInterval(an,150);
+    }
+</script>
+
+</body>
+</html>
